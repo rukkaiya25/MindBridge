@@ -1,0 +1,287 @@
+/* ================= ROOT VARIABLES ================= */
+:root {
+  --primary: #2F7F7B;
+  --primary-light: #3FA9A4;
+  --accent: #F4A261;
+  --dark: #243B3B;
+  --bg: #F5FAFA;
+  --card: #EAF2F2;
+  --white: #ffffff;
+}
+
+/* ================= GLOBAL ================= */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #ffffff, var(--bg));
+  min-height: 100vh;
+  color: var(--dark);
+
+  /* FONT SIZE INCREASE */
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  background: linear-gradient(135deg, var(--dark), #1E4D4D);
+  padding: 14px 0;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.nav-links span {
+  color: white;
+  cursor: pointer;
+  font-size: 15px; /* was 14px */
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.25s ease;
+}
+
+.nav-links span:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ================= HERO / HIGHLIGHT ================= */
+.dashboard-hero {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: 0 18px 40px rgba(47,127,123,0.35);
+}
+
+.dashboard-hero h4 {
+  font-weight: 600;
+}
+
+.dashboard-hero p {
+  opacity: 0.9;
+}
+
+/* ================= CARDS ================= */
+.login-card {
+  background: linear-gradient(180deg, var(--card), #ddeaea);
+  border-radius: 20px;
+  border: none;
+}
+
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px rgba(0,0,0,0.12);
+}
+
+/* ================= FORMS ================= */
+.form-label {
+  font-size: 15px; /* was 14px */
+  font-weight: 500;
+}
+
+.form-control {
+  background-color: var(--white);
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 12px;
+  font-size: 15px; /* was 14px */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(47,127,123,0.25);
+}
+
+/* Password eye */
+.input-group-text {
+  background-color: var(--white);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+/* ================= BUTTONS ================= */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px;
+  box-shadow: 0 10px 25px rgba(47,127,123,0.45);
+  transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 18px 35px rgba(47,127,123,0.55);
+}
+
+/* Accent button (optional) */
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent), #F7B267);
+  border-radius: 30px;
+  border: none;
+  color: white;
+}
+
+/* ================= DASHBOARD TRACKING ================= */
+.tracking-card {
+  background: white;
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+}
+
+.tracking-card strong {
+  font-size: 18px;
+}
+
+/* ================= SCREENING ================= */
+.form-check {
+  margin-bottom: 10px;
+}
+
+.form-check-label {
+  font-size: 15px; /* was 14px */
+}
+
+/* ================= PEER SUPPORT ================= */
+/* ================= PEER SUPPORT FIX ================= */
+
+/* Main container spacing */
+#peerPage .card {
+  background-color: #E6ECEC;
+  border-radius: 12px;
+}
+
+/* Message box */
+#peerPage .message-box {
+  height: 260px;
+  background-color: #F4F7F7;
+  border: 2px solid #8FAFB0;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 15px;
+  color: #555;
+}
+
+/* Send button (fix pill issue) */
+#peerPage .send-btn {
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 8px;
+}
+
+/* Peer cards */
+.peer-card {
+  background-color: #DDE6E6;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  height: auto;           /* IMPORTANT FIX */
+}
+
+/* Peer name */
+.peer-card strong {
+  font-size: 16px;
+}
+
+/* Peer meta text */
+.peer-card p {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+
+/* ================= TEXT ================= */
+.text-muted {
+  font-size: 14px; /* was 13px */
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background-color: #243B3B;
+  color: #ffffff;
+}
+
+.footer h6 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.footer p {
+  color: #d6e4e4;
+  font-size: 14px;
+}
+
+.footer hr {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* FIX: show proper sliders for daily check-in */
+input[type="range"] {
+  width: 100%;
+  appearance: auto;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  background: #0d6efd;
+  border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: auto;
+  width: 18px;
+  height: 18px;
+  background: #0d6efd;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -6px;
+}
+
+/* ===== Custom Slider Color ===== */
+
+/* Track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #2f8f83;
+  height: 6px;
+  border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+  background: #2f8f83;
+  height: 6px;
+  border-radius: 5px;
+}
+
+/* Thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: #1f6f64;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-top: -6px;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: #1f6f64;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}
