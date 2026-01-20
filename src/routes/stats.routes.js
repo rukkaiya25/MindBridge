@@ -5,58 +5,51 @@ const jwt = require('jsonwebtoken');
 
 const JWT_SECRET = 'mindbridge_secret_key';
 
-// token verification (same logic, kept simple)
+// token middleware (duplicate is fine for now)
 function verifyToken(req, res, next) {
     const authHeader = req.headers.authorization;
-
-    if (!authHeader) {
-        return res.status(401).json({ message: 'Token missing' });
-    }
+    if (!authHeader) return res.status(401).json({ message: 'Token missing' });
 
     const token = authHeader.split(' ')[1];
-
     jwt.verify(token, JWT_SECRET, (err, decoded) => {
-        if (err) {
-            return res.status(401).json({ message: 'Invalid token' });
-        }
+        if (err) return res.status(401).json({ message: 'Invalid token' });
         req.userId = decoded.id;
         next();
     });
 }
 
-/*
-  GET daily stats for charts
-  returns date, mood, stress
-*/
-router.get('/daily', verifyToken, (req, res) => {
+// GET dashboard stats
+router.get('/dashboard', verifyToken, (req, res) => {
     const sql = `
-    SELECT date, mood, stress
-    FROM daily_checkins
-    WHERE user_id = ?
-    ORDER BY date
-  `;
-
-    db.query(sql, [req.userId], (err, result) => {
-        res.json(result);
-    });
-});
-
-/*
-  GET weekly averages
-*/
-router.get('/weekly', verifyToken, (req, res) => {
-    const sql = `
-    SELECT
-      WEEK(date) AS week,
+    SELECT 
       AVG(mood) AS avgMood,
       AVG(stress) AS avgStress
     FROM daily_checkins
     WHERE user_id = ?
-    GROUP BY WEEK(date)
-    ORDER BY WEEK(date)
   `;
 
     db.query(sql, [req.userId], (err, result) => {
+        if (err) {
+            return res.status(500).json({ message: 'Failed to fetch stats' });
+        }
+        res.json(result[0]);
+    });
+});
+
+// GET last 7 days trend
+router.get('/weekly', verifyToken, (req, res) => {
+    const sql = `
+    SELECT date, mood, stress
+    FROM daily_checkins
+    WHERE user_id = ?
+    ORDER BY date DESC
+    LIMIT 7
+  `;
+
+    db.query(sql, [req.userId], (err, result) => {
+        if (err) {
+            return res.status(500).json({ message: 'Failed to fetch weekly data' });
+        }
         res.json(result);
     });
 });
