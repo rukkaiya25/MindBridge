@@ -22,10 +22,13 @@ function verifyToken(req, res, next) {
 router.get('/dashboard', verifyToken, (req, res) => {
     const sql = `
     SELECT 
-      AVG(mood) AS avgMood,
-      AVG(stress) AS avgStress
-    FROM daily_checkins
-    WHERE user_id = ?
+  AVG(mood) AS avgMood,
+  AVG(stress) AS avgStress,
+  AVG(energy) AS avgEnergy,
+  AVG(sleep) AS avgSleep
+FROM daily_checkins
+
+
   `;
 
     db.query(sql, [req.userId], (err, result) => {
@@ -39,11 +42,12 @@ router.get('/dashboard', verifyToken, (req, res) => {
 // GET last 7 days trend
 router.get('/weekly', verifyToken, (req, res) => {
     const sql = `
-    SELECT date, mood, stress
-    FROM daily_checkins
-    WHERE user_id = ?
-    ORDER BY date DESC
-    LIMIT 7
+    SELECT date, mood, stress, energy, sleep
+     FROM daily_checkins
+     WHERE user_id = ?
+     ORDER BY date DESC
+     LIMIT 7
+
   `;
 
     db.query(sql, [req.userId], (err, result) => {

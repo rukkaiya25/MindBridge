@@ -20,8 +20,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/checkin', checkinRoutes);
 app.use('/api/stats', statsRoutes); // ✅ THIS WAS MISSING
 
-app.get('/', (req, res) => {
-  res.send('MindBridge API is running');
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/index.html"));
 });
-
 module.exports = app;

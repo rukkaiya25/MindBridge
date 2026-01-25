@@ -2,31 +2,30 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>MindBridge | SPA</title>
+  <meta charset="UTF-8" />
+  <title>MindBridge</title>
 
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
   <!-- Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <!-- ================= NAVBAR ================= -->
-  <nav class="navbar">
+  <!-- ================= NAVBAR (LOGGED IN ONLY) ================= -->
+  <nav id="topNav" class="navbar navbar-expand-lg" style="display:none;">
     <div class="container">
-      <span class="navbar-brand">MindBridge</span>
+      <span class="navbar-brand brand-text" style="cursor:pointer;"
+        onclick="showDashboard(); return false;">MindBridge</span>
 
-      <div class="ms-auto d-flex gap-4 nav-links">
-        <span onclick="showDashboard()">Dashboard</span>
-        <span onclick="showScreening()">Screening</span>
-        <span onclick="showPeer()">Peer Support</span>
-        <span onclick="showLogin()">Logout</span>
+      <div class="ms-auto d-flex gap-3 nav-links">
+        <span onclick="showDashboard(); return false;">Dashboard</span>
+        <span onclick="showScreening(); return false;">Screening Test</span>
+        <span onclick="showProfile(); return false;">My Profile</span>
+        <span onclick="logout(); return false;">Logout</span>
       </div>
     </div>
   </nav>
@@ -34,519 +33,160 @@
   <!-- ================= LOGIN ================= -->
   <div id="loginPage" class="container d-flex justify-content-center align-items-center" style="min-height:85vh;">
     <div class="col-md-4">
-      <div class="card login-card p-4 shadow">
+      <div class="card login-card p-4">
         <h5 class="text-center mb-4">Login</h5>
 
         <input id="loginEmail" class="form-control mb-3" placeholder="Email">
 
-        <div class="input-group mb-4">
-          <input id="loginPassword" class="form-control" type="password" placeholder="Password">
+        <div class="input-group mb-3">
+          <input id="loginPassword" type="password" class="form-control" placeholder="Password">
           <span class="input-group-text" onclick="togglePassword('loginPassword', this)">
             <i class="bi bi-eye"></i>
           </span>
         </div>
 
-        <button class="btn btn-primary w-100 mb-3" onclick="login()">Login</button>
+        <button class="btn btn-primary w-100" onclick="login()">Login</button>
 
-        <p class="text-center">
-          <a href="#" onclick="showForgot()">Forgot password?</a>
+        <p class="text-center mt-2">
+          <a href="#" onclick="showForgot(); return false;">Forgot password?</a>
         </p>
 
-
-        <p class="text-center text-muted">
-          Don’t have an account?
-          <a href="#" onclick="showSignup()">Sign up</a>
+        <p class="text-center mt-2">
+          <a href="#" onclick="showSignup(); return false;">Create account</a>
         </p>
       </div>
     </div>
   </div>
 
   <!-- ================= SIGNUP ================= -->
-  <div id="signupPage" class="container d-none d-flex justify-content-center align-items-center"
-    style="min-height:85vh;">
+  <div id="signupPage" class="container d-none justify-content-center align-items-center" style="min-height:85vh;">
     <div class="col-md-4">
-      <div class="card login-card p-4 shadow">
+      <div class="card login-card p-4">
         <h5 class="text-center mb-4">Sign Up</h5>
 
         <input id="signupName" class="form-control mb-3" placeholder="Name">
         <input id="signupEmail" class="form-control mb-3" placeholder="Email">
-        <div class="input-group mb-4">
-          <input id="signupPassword" class="form-control" type="password" placeholder="Password">
+
+        <div class="input-group mb-3">
+          <input id="signupPassword" type="password" class="form-control" placeholder="Password">
           <span class="input-group-text" onclick="togglePassword('signupPassword', this)">
             <i class="bi bi-eye"></i>
           </span>
         </div>
 
+        <button class="btn btn-primary w-100" onclick="signup()">Create Account</button>
 
-        <button class="btn btn-primary w-100 mb-3" onclick="signup()">Create Account</button>
-
-        <p class="text-center text-muted">
-          Already have an account?
-          <a href="#" onclick="showLogin()">Login</a>
+        <p class="text-center mt-3">
+          <a href="#" onclick="showLogin(); return false;">Back to login</a>
         </p>
       </div>
     </div>
   </div>
 
-  <div id="forgotPage" class="container d-none d-flex justify-content-center align-items-center"
-    style="min-height:85vh;">
+  <!-- ================= FORGOT PASSWORD ================= -->
+  <div id="forgotPage" class="container d-none justify-content-center align-items-center" style="min-height:85vh;">
     <div class="col-md-4">
-      <div class="card login-card p-4 shadow">
+      <div class="card login-card p-4">
         <h5 class="text-center mb-4">Reset Password</h5>
 
         <input id="forgotEmail" class="form-control mb-3" placeholder="Registered Email">
-        <input id="newPassword" class="form-control mb-4" type="password" placeholder="New Password">
+
+        <div class="input-group mb-4">
+          <input id="newPassword" class="form-control" type="password" placeholder="New Password">
+          <span class="input-group-text" onclick="togglePassword('newPassword', this)">
+            <i class="bi bi-eye"></i>
+          </span>
+        </div>
 
         <button class="btn btn-primary w-100" onclick="resetPassword()">Update Password</button>
 
         <p class="text-center mt-3">
-          <a href="#" onclick="showLogin()">Back to login</a>
+          <a href="#" onclick="showLogin(); return false;">Back to login</a>
         </p>
       </div>
     </div>
   </div>
 
-
-
   <!-- ================= DASHBOARD ================= -->
-  <div id="dashboardPage" class="container d-none mt-4">
-    <div class="row g-3">
+  <section id="dashboardPage" class="dashboard d-none">
+    <h2>Today’s Status</h2>
+    <p id="todayStatus" class="text-muted">No check-in yet</p>
 
-      <div class="col-md-5">
-        <div class="card login-card p-3 h-100">
-          <h6 class="mb-2">Weekly Mood Trend</h6>
-          <div class="border rounded p-3 text-muted" style="height:320px;">
-            <div class="d-flex justify-content-between">
-              <span>Mon</span><span>Tue</span><span>Wed</span>
-              <span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="mt-5 text-center">
-              <small>(Graph placeholder)</small>
-            </div>
-          </div>
-        </div>
+    <div class="cards">
+      <div class="stat-card">
+        <h4>Mood</h4>
+        <span id="moodValue">–</span>/10
       </div>
-
-      <div class="col-md-3">
-        <div class="card login-card p-3 h-100">
-          <h6 class="mb-2">Peer Support Module</h6>
-          <div class="border rounded p-3 text-muted" style="height:320px;">
-            <p>• Peer X</p>
-            <p>• Peer Y</p>
-            <p>• Peer Z</p>
-          </div>
-        </div>
+      <div class="stat-card">
+        <h4>Energy</h4>
+        <span id="energyValue">–</span>/10
       </div>
-
-      <div class="col-md-4">
-        <div class="card login-card p-3 h-100">
-          <h6 class="mb-3">Daily Tracking</h6>
-
-          <div class="card mb-3 p-3 text-center"><strong>Mood</strong><span>6 / 10</span></div>
-          <div class="card mb-3 p-3 text-center"><strong>Energy</strong><span>6 / 10</span></div>
-          <div class="card p-3 text-center"><strong>Sleep</strong><span>6 / 10</span></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ================= SCREENING (7 ADVANCED QUESTIONS) ================= -->
-  <!-- ================= SCREENING ================= -->
-  <div id="screeningPage" class="container d-none mt-4">
-
-    <h5 class="mb-4">Screening Tools Page</h5>
-
-    <div class="row g-4">
-
-      <!-- QUESTION 1 -->
-      <div class="col-md-6">
-        <div class="card login-card p-4 h-100">
-          <h6>Q1. How often have you felt emotionally overwhelmed?</h6>
-
-          <div class="form-check mt-3">
-            <input class="form-check-input" type="radio" name="q1">
-            <label class="form-check-label">Rarely</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="q1">
-            <label class="form-check-label">Sometimes</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="q1">
-            <label class="form-check-label">Often</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- QUESTION 2 -->
-      <div class="col-md-6">
-        <div class="card login-card p-4 h-100">
-          <h6>Q2. How difficult is it for you to concentrate on tasks?</h6>
-
-          <div class="form-check mt-3">
-            <input class="form-check-input" type="radio" name="q2">
-            <label class="form-check-label">Not difficult</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="q2">
-            <label class="form-check-label">Moderately difficult</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="q2">
-            <label class="form-check-label">Very difficult</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- QUESTION 3 -->
-      <div class="col-md-6">
-        <div class="card login-card p-4 h-100">
-          <h6>Q3. How would you describe your recent mood changes?</h6>
-
-          <div class="form-check mt-3">
-            <input class="form-check-input" type="radio" name="q3">
-            <label class="form-check-label">Stable</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="q3">
-            <label class="form-check-label">Occasional changes</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="q3">
-            <label class="form-check-label">Frequent changes</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- QUESTION 4 -->
-      <div class="col-md-6">
-        <div class="card login-card p-4 h-100">
-          <h6>Q4. How stressed do you feel on an average day?</h6>
-
-          <div class="form-check mt-3">
-            <input class="form-check-input" type="radio" name="q4">
-            <label class="form-check-label">Low</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="q4">
-            <label class="form-check-label">Moderate</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="q4">
-            <label class="form-check-label">High</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- QUESTION 5 -->
-      <div class="col-md-6">
-        <div class="card login-card p-4 h-100">
-          <h6>Q5. How often do you avoid social interaction?</h6>
-
-          <div class="form-check mt-3">
-            <input class="form-check-input" type="radio" name="q5">
-            <label class="form-check-label">Almost never</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="q5">
-            <label class="form-check-label">Sometimes</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="q5">
-            <label class="form-check-label">Most of the time</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- QUESTION 6 -->
-      <div class="col-md-6">
-        <div class="card login-card p-4 h-100">
-          <h6>Q6. How would you rate your sleep quality?</h6>
-
-          <div class="form-check mt-3">
-            <input class="form-check-input" type="radio" name="q6">
-            <label class="form-check-label">Good</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="q6">
-            <label class="form-check-label">Average</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="q6">
-            <label class="form-check-label">Poor</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- QUESTION 7 -->
-      <div class="col-md-12">
-        <div class="card login-card p-4">
-          <h6>Q7. How motivated do you feel to perform daily activities?</h6>
-
-          <div class="form-check mt-3">
-            <input class="form-check-input" type="radio" name="q7">
-            <label class="form-check-label">Highly motivated</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="q7">
-            <label class="form-check-label">Somewhat motivated</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="q7">
-            <label class="form-check-label">Not motivated</label>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="mt-4">
-      <button class="btn btn-primary px-5">Submit</button>
-    </div>
-
-  </div>
-
-
-  <!-- ================= PEER SUPPORT ================= -->
-  <div id="peerPage" class="container d-none mt-4">
-    <div class="row g-4">
-      <div class="col-md-7">
-        <div class="card login-card p-4">
-          <textarea class="form-control mb-3" rows="10" placeholder="Type your message here..."></textarea>
-          <button class="btn btn-primary w-100">Send</button>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="card login-card p-4">
-          <div class="peer-card"><strong>Peer X</strong>
-            <p>[experience]</p>
-            <p class="text-muted">[availability]</p>
-          </div>
-          <div class="peer-card"><strong>Peer Y</strong>
-            <p>[experience]</p>
-            <p class="text-muted">[availability]</p>
-          </div>
-          <div class="peer-card"><strong>Peer Z</strong>
-            <p>[experience]</p>
-            <p class="text-muted">[availability]</p>
-          </div>
-        </div>
+      <div class="stat-card">
+        <h4>Sleep</h4>
+        <span id="sleepValue">–</span>/10
       </div>
     </div>
-  </div>
 
-  <!-- ================= DAILY CHECK-IN MODAL ================= -->
-  <div class="modal fade" id="dailyCheckinModal" tabindex="-1">
+    <div class="chart-card">
+      <h3>Weekly Wellness Trend</h3>
+      <div class="chart-wrapper">
+        <canvas id="weeklyChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SCREENING PAGE (placeholder) ================= -->
+  <section id="screeningPage" class="container d-none mt-4">
+    <div class="card p-4">
+      <h5>Screening Test</h5>
+      <p class="text-muted">Module coming next.</p>
+    </div>
+  </section>
+
+  <!-- ================= PROFILE PAGE (placeholder) ================= -->
+  <section id="profilePage" class="container d-none mt-4">
+    <div class="card p-4">
+      <h5>My Profile</h5>
+      <p><strong>Name:</strong> <span id="profileName">-</span></p>
+      <p><strong>Email:</strong> <span id="profileEmail">-</span></p>
+    </div>
+  </section>
+
+  <!-- ================= FORCED DAILY CHECK-IN MODAL ================= -->
+  <div class="modal fade" id="dailyCheckinModal" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content login-card p-3">
+      <div class="modal-content login-card p-4">
 
-        <div class="modal-header border-0">
-          <h5 class="modal-title">Daily Check-In</h5>
-          <button class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
+        <h5 class="mb-3 text-center">Daily Check-In</h5>
 
-        <div class="modal-body">
+        <label>Mood: <strong><span id="moodVal">5</span></strong></label>
+        <input type="range" min="1" max="10" value="5" id="mood" class="form-range"
+          oninput="moodVal.innerText=this.value">
 
-          <div class="mb-4">
-            <label class="form-label">Mood</label>
-            <input type="range" min="1" max="10" step="1" value="5" class="form-range" id="moodSlider">
-          </div>
+        <label class="mt-3">Stress: <strong><span id="stressVal">5</span></strong></label>
+        <input type="range" min="1" max="10" value="5" id="stress" class="form-range"
+          oninput="stressVal.innerText=this.value">
 
-          <div class="mb-4">
-            <label class="form-label">Energy</label>
-            <input type="range" min="1" max="10" step="1" value="5" class="form-range" id="energySlider">
-          </div>
+        <label class="mt-3">Energy: <strong><span id="energyVal">5</span></strong></label>
+        <input type="range" min="1" max="10" value="5" id="energy" class="form-range"
+          oninput="energyVal.innerText=this.value">
 
-          <div>
-            <label class="form-label">Sleep</label>
-            <input type="range" min="1" max="10" step="1" value="5" class="form-range" id="sleepSlider">
-          </div>
+        <label class="mt-3">Sleep: <strong><span id="sleepVal">5</span></strong></label>
+        <input type="range" min="1" max="10" value="5" id="sleep" class="form-range"
+          oninput="sleepVal.innerText=this.value">
 
-        </div>
-
-        <div class="modal-footer border-0">
-          <button class="btn btn-primary w-100" onclick="closeCheckin()">
-            Submit
-          </button>
-        </div>
-
+        <button class="btn btn-primary w-100 mt-4" onclick="submitCheckin()">
+          Submit Check-In
+        </button>
 
       </div>
     </div>
   </div>
 
-  <!-- ================= JS ================= -->
+  <!-- ================= SCRIPTS ================= -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const API_URL = "http://localhost:5000/api";
-    let token = localStorage.getItem("token");
-
-    function signup() {
-      fetch(`${API_URL}/auth/register`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: signupName.value,
-          email: signupEmail.value,
-          password: signupPassword.value
-        })
-      })
-        .then(res => res.json())
-        .then(data => {
-          alert(data.message);
-          showLogin();
-        });
-    }
-
-    function login() {
-      fetch(`${API_URL}/auth/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: loginEmail.value.trim(),
-          password: loginPassword.value
-        })
-      })
-        .then(res => res.json())
-        .then(data => {
-          if (data.token) {
-            localStorage.setItem("token", data.token);
-            token = data.token;
-            showDashboard();
-          } else {
-            alert(data.message);
-          }
-        });
-    }
-
-
-    function showForgot() {
-      hideAll();
-      forgotPage.classList.remove("d-none");
-    }
-
-    function resetPassword() {
-      fetch(`${API_URL}/auth/reset-password`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: forgotEmail.value,
-          newPassword: newPassword.value
-        })
-      })
-        .then(res => res.json())
-        .then(data => {
-          alert(data.message);
-          showLogin();
-        });
-    }
-
-
-
-
-
-
-
-    function hideAll() {
-      ["loginPage", "signupPage", "dashboardPage", "screeningPage", "peerPage", "forgotPage"]
-        .forEach(id => document.getElementById(id).classList.add("d-none"));
-    }
-    function showLogin() { hideAll(); loginPage.classList.remove("d-none"); }
-    function showSignup() { hideAll(); signupPage.classList.remove("d-none"); }
-    function showDashboard() {
-      hideAll();
-      dashboardPage.classList.remove("d-none");
-      new bootstrap.Modal(dailyCheckinModal).show();
-    }
-    function showScreening() { hideAll(); screeningPage.classList.remove("d-none"); }
-    function showPeer() { hideAll(); peerPage.classList.remove("d-none"); }
-    function closeCheckin() { bootstrap.Modal.getInstance(dailyCheckinModal).hide(); }
-    if (token) {
-      showDashboard();
-    }
-
-    function togglePassword(inputId, iconSpan) {
-      const input = document.getElementById(inputId);
-      const icon = iconSpan.querySelector("i");
-
-      if (input.type === "password") {
-        input.type = "text";
-        icon.classList.replace("bi-eye", "bi-eye-slash");
-      } else {
-        input.type = "password";
-        icon.classList.replace("bi-eye-slash", "bi-eye");
-      }
-    }
-
-
-  </script>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="footer mt-5">
-    <div class="container py-4">
-      <div class="row">
-
-        <!-- About Us -->
-        <div class="col-md-4 mb-3">
-          <h6>About MindBridge</h6>
-          <p>
-            MindBridge is a mental health support platform designed to help users
-            track their emotional well-being, access screening tools, and connect
-            with peer support.
-          </p>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="col-md-4 mb-3">
-          <h6>Quick Links</h6>
-          <ul class="list-unstyled">
-            <li>Dashboard</li>
-            <li>Screening Tools</li>
-            <li>Peer Support</li>
-            <li>Login / Sign Up</li>
-          </ul>
-        </div>
-
-        <!-- Contact Us -->
-        <div class="col-md-4 mb-3">
-          <h6>Contact Us</h6>
-          <p>Email: support@mindbridge.com</p>
-          <p>College Project – 2026</p>
-        </div>
-
-      </div>
-
-      <hr>
-
-      <!-- Disclaimer -->
-      <p class="text-center small">
-        Disclaimer: This application is intended for educational purposes only
-        and is not a substitute for professional mental health care.
-      </p>
-
-      <p class="text-center small mb-0">
-        © 2026 MindBridge. All rights reserved.
-
-      </p>
-    </div>
-  </footer>
-
-
+  <script src="script.js"></script>
 </body>
 
 </html>
