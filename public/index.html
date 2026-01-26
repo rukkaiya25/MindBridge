@@ -31,79 +31,158 @@
   </nav>
 
   <!-- ================= INTRO PAGE ================= -->
-  <section id="introPage" class="container intro-page d-flex align-items-center min-vh-100">
-    <div class="row w-100 align-items-center g-4">
+  <!-- ================= INTRO / HOME PAGE ================= -->
+  <section id="introPage" class="home">
+    <div class="container">
 
-      <div class="col-lg-6">
-        <div class="brand-badge mb-3">
-          <span class="dot"></span>
-          <span>Wellness Tracker</span>
+      <!-- HERO -->
+      <div class="home-hero">
+        <div class="home-hero-left">
+          <span class="home-badge">Mental wellness tracker</span>
+          <h1 class="home-title">Track your wellbeing, one check-in at a time.</h1>
+          <p class="home-sub">
+            MindBridge helps you record mood, stress, energy, and sleep — then shows weekly trends so you can notice
+            patterns early.
+          </p>
 
-        </div>
-
-        <h1 class="intro-title">MindBridge</h1>
-
-        <p class="intro-subtitle">
-          Track mood, stress, energy, and sleep in under a minute. Review weekly trends and spot patterns early.
-        </p>
-
-
-        <div class="feature-list mt-4">
-          <div class="feature-item">
-            <i class="bi bi-check2-circle"></i>
-            <span>Quick daily check-in (once per day)</span>
+          <div class="home-cta">
+            <button class="btn btn-primary px-4" onclick="showLogin()">Login</button>
+            <button class="btn btn-outline-primary px-4" onclick="showSignup()">Create account</button>
           </div>
-          <div class="feature-item">
-            <i class="bi bi-check2-circle"></i>
-            <span>Weekly trend charts for better awareness</span>
-          </div>
-          <div class="feature-item">
-            <i class="bi bi-check2-circle"></i>
-            <span>Optional weekly screening test when needed</span>
+
+          <div class="home-mini">
+            <div class="mini-item"><i class="bi bi-shield-check"></i><span>Private account</span></div>
+            <div class="mini-item"><i class="bi bi-calendar-check"></i><span>One check-in/day</span></div>
+            <div class="mini-item"><i class="bi bi-graph-up"></i><span>Weekly trends</span></div>
           </div>
         </div>
 
+        <div class="home-hero-right">
+          <div class="home-mock">
+            <div class="mock-top">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
 
-        <div class="mt-4 d-flex gap-3">
-          <button class="btn btn-primary px-4" onclick="showLogin()">Login</button>
-          <button class="btn btn-outline-secondary px-4" onclick="showSignup()">Sign Up</button>
+            <div class="mock-body">
+              <div class="mock-card">
+                <div class="mock-label">Today</div>
+                <div class="mock-row">
+                  <div class="pill">Mood <strong>7</strong>/10</div>
+                  <div class="pill">Energy <strong>6</strong>/10</div>
+                </div>
+                <div class="mock-row">
+                  <div class="pill">Stress <strong>4</strong>/10</div>
+                  <div class="pill">Sleep <strong>6</strong>/10</div>
+                </div>
+              </div>
+
+              <div class="mock-chart">
+                <div class="mock-label">Weekly trend</div>
+                <div class="bars">
+                  <span style="height:35%"></span>
+                  <span style="height:55%"></span>
+                  <span style="height:45%"></span>
+                  <span style="height:70%"></span>
+                  <span style="height:60%"></span>
+                  <span style="height:75%"></span>
+                  <span style="height:50%"></span>
+                </div>
+                <div class="mock-days">
+                  <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <p class="intro-footnote mt-4">
-          Note: This app supports self-tracking and awareness. It does not provide medical advice.
-        </p>
-
       </div>
 
-      <div class="col-lg-6">
-        <div class="preview-card">
-          <div class="preview-header">
-            <div class="preview-title">What you can do</div>
-            <div class="preview-chip">Dashboard</div>
+      <!-- METRICS STRIP -->
+      <div class="home-metrics">
+        <div class="metric">
+          <div class="metric-num">1</div>
+          <div class="metric-text">
+            <div class="metric-title">Daily check-in</div>
+            <div class="metric-sub">Quick, consistent tracking</div>
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">2</div>
+          <div class="metric-text">
+            <div class="metric-title">Wellness signals</div>
+            <div class="metric-sub">Mood • Stress • Energy • Sleep</div>
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">3</div>
+          <div class="metric-text">
+            <div class="metric-title">Weekly view</div>
+            <div class="metric-sub">Spot patterns over time</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHAT YOU GET -->
+      <div class="home-grid">
+        <div class="home-section">
+          <h3 class="sec-title">What you can do</h3>
+          <p class="sec-sub">Everything you need for a simple, structured weekly overview.</p>
+
+          <div class="feature-grid">
+            <div class="feature">
+              <i class="bi bi-clipboard2-check"></i>
+              <div>
+                <div class="feature-title">Daily check-in</div>
+                <div class="feature-sub">Submit once per day </div>
+              </div>
+            </div>
+            <div class="feature">
+              <i class="bi bi-graph-up"></i>
+              <div>
+                <div class="feature-title">Charts & trends</div>
+                <div class="feature-sub">Track changes across the week.</div>
+              </div>
+            </div>
+            <div class="feature">
+              <i class="bi bi-person-badge"></i>
+              <div>
+                <div class="feature-title">Profile</div>
+                <div class="feature-sub">Keep your activity tied to your account.</div>
+              </div>
+            </div>
+            <div class="feature">
+              <i class="bi bi-shield-lock"></i>
+              <div>
+                <div class="feature-title">Private data</div>
+                <div class="feature-sub">Only your login can access your records.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA CARD -->
+        <div class="home-cta-card">
+          <h3 class="sec-title">Ready to start?</h3>
+          <p class="sec-sub">
+            Create an account and complete today’s check-in to unlock your dashboard.
+          </p>
+          <div class="d-flex gap-2 mt-3">
+            <button class="btn btn-primary px-4" onclick="showSignup()">Create account</button>
+            <button class="btn btn-outline-primary px-4" onclick="showLogin()">Login</button>
           </div>
 
-          <div class="preview-grid">
-            <div class="preview-metric">
-              <div class="label">Mood</div>
-              <div class="value">1–10</div>
-            </div>
-            <div class="preview-metric">
-              <div class="label">Stress</div>
-              <div class="value">1–10</div>
-            </div>
-            <div class="preview-metric">
-              <div class="label">Energy</div>
-              <div class="value">1–10</div>
-            </div>
-            <div class="preview-metric">
-              <div class="label">Sleep</div>
-              <div class="value">1–10</div>
-            </div>
+          <div class="home-note mt-4">
+            <strong>Disclaimer:</strong> Educational project. Not medical advice.
           </div>
+        </div>
+      </div>
 
-          <div class="preview-note mt-3">
-            After login, MindBridge prompts today’s check-in if it hasn’t been submitted.
-          </div>
+      <!-- FOOTER MINI -->
+      <div class="home-footer">
+        <div>© 2026 MindBridge</div>
+        <div class="home-footer-links">
+          <span>Privacy</span><span>Support</span><span>Contact</span>
         </div>
       </div>
 
@@ -111,7 +190,7 @@
   </section>
 
 
-  <!-- ================= LOGIN ================= -->
+
   <!-- ================= LOGIN ================= -->
   <section id="loginPage" class="container d-none auth-page d-flex align-items-center min-vh-100">
     <div class="row w-100 justify-content-center">
