@@ -277,11 +277,14 @@ async function loadWeeklyChart() {
     });
 }
 
-/* ===================== PROFILE (PLACEHOLDER) ===================== */
+
+
+/* ===================== PROFILE ===================== */
 function loadProfile() {
     el("profileName").innerText = "User";
     el("profileEmail").innerText = "—";
 }
+
 
 /* ===================== INIT ===================== */
 function initApp() {
@@ -310,3 +313,39 @@ window.resetPassword = resetPassword;
 window.logout = logout;
 window.togglePassword = togglePassword;
 window.submitCheckin = submitCheckin;
+window.submitScreening = submitScreening; // ✅ ADD THIS
+/* ===================== SCREENING ===================== */
+
+function submitScreening() {
+  const form = document.getElementById("screeningForm");
+  const resultBox = document.getElementById("screeningResult");
+
+  let score = 0;
+  let answered = 0;
+
+  for (let i = 1; i <= 8; i++) {
+    const q = form.querySelector(`input[name="q${i}"]:checked`);
+    if (q) {
+      score += parseInt(q.value);
+      answered++;
+    }
+  }
+
+  if (answered < 8) {
+    alert("Please answer all questions.");
+    return;
+  }
+
+  let message = "";
+
+  if (score <= 6) {
+    message = "🌱 Your responses suggest low stress levels. Keep nurturing your well-being.";
+  } else if (score <= 14) {
+    message = "💛 You may be experiencing moderate stress. Consider small self-care steps.";
+  } else {
+    message = "🧠 High stress indicators detected. Seeking support may be beneficial.";
+  }
+
+  resultBox.innerText = message;
+  resultBox.classList.remove("d-none");
+}

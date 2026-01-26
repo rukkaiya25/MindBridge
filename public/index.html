@@ -334,22 +334,113 @@
     </div>
   </section>
 
-  <!-- ================= SCREENING PAGE (placeholder) ================= -->
-  <section id="screeningPage" class="container d-none mt-4">
-    <div class="card p-4">
-      <h5>Screening Test</h5>
-      <p class="text-muted">Module coming next.</p>
+  
+  <!-- ================= SCREENING PAGE ================= -->
+<!-- ================= SCREENING PAGE ================= -->
+<section id="screeningPage" class="container d-none mt-5">
+  <div class="screening-card mx-auto">
+
+    <h3 class="text-center mb-2">Mental Wellness Screening</h3>
+    <p class="text-center text-muted mb-4">
+      Answer honestly based on how you’ve felt over the past 2 weeks.
+    </p>
+
+    <!-- QUESTION 1 -->
+    <div class="question">
+      <p>1. I feel overwhelmed by daily responsibilities.</p>
+      <div class="scale">
+        <label><input type="radio" name="q1"><span>Never</span></label>
+        <label><input type="radio" name="q1"><span>Sometimes</span></label>
+        <label><input type="radio" name="q1"><span>Often</span></label>
+        <label><input type="radio" name="q1"><span>Almost Always</span></label>
+      </div>
     </div>
-  </section>
+
+    <!-- QUESTION 2 -->
+    <div class="question">
+      <p>2. I find it hard to relax or unwind.</p>
+      <div class="scale">
+        <label><input type="radio" name="q2"><span>Never</span></label>
+        <label><input type="radio" name="q2"><span>Sometimes</span></label>
+        <label><input type="radio" name="q2"><span>Often</span></label>
+        <label><input type="radio" name="q2"><span>Almost Always</span></label>
+      </div>
+    </div>
+
+    <!-- QUESTION 3 -->
+    <div class="question">
+      <p>3. I feel motivated to complete my daily tasks.</p>
+      <div class="scale">
+        <label><input type="radio" name="q3"><span>Always</span></label>
+        <label><input type="radio" name="q3"><span>Often</span></label>
+        <label><input type="radio" name="q3"><span>Rarely</span></label>
+        <label><input type="radio" name="q3"><span>Never</span></label>
+      </div>
+    </div>
+
+    <!-- QUESTION 4 -->
+    <div class="question">
+      <p>4. I feel anxious or worried without a clear reason.</p>
+      <div class="scale">
+        <label><input type="radio" name="q4"><span>Never</span></label>
+        <label><input type="radio" name="q4"><span>Sometimes</span></label>
+        <label><input type="radio" name="q4"><span>Often</span></label>
+        <label><input type="radio" name="q4"><span>Almost Always</span></label>
+      </div>
+    </div>
+
+    <!-- QUESTION 5 -->
+    <div class="question">
+      <p>5. I feel positive about my future.</p>
+      <div class="scale">
+        <label><input type="radio" name="q5"><span>Always</span></label>
+        <label><input type="radio" name="q5"><span>Often</span></label>
+        <label><input type="radio" name="q5"><span>Rarely</span></label>
+        <label><input type="radio" name="q5"><span>Never</span></label>
+      </div>
+    </div>
+
+    <!-- QUESTION 6 -->
+    <div class="question">
+      <p>6. I have trouble concentrating on tasks.</p>
+      <div class="scale">
+        <label><input type="radio" name="q6"><span>Never</span></label>
+        <label><input type="radio" name="q6"><span>Sometimes</span></label>
+        <label><input type="radio" name="q6"><span>Often</span></label>
+        <label><input type="radio" name="q6"><span>Almost Always</span></label>
+      </div>
+    </div>
+
+    <!-- QUESTION 7 -->
+    <div class="question">
+      <p>7. I feel emotionally supported by people around me.</p>
+      <div class="scale">
+        <label><input type="radio" name="q7"><span>Always</span></label>
+        <label><input type="radio" name="q7"><span>Often</span></label>
+        <label><input type="radio" name="q7"><span>Rarely</span></label>
+        <label><input type="radio" name="q7"><span>Never</span></label>
+      </div>
+    </div>
+
+    <button class="btn btn-primary w-100 mt-4">
+      Submit Screening
+    </button>
+
+  </div>
+</section>
+
 
   <!-- ================= PROFILE PAGE (placeholder) ================= -->
-  <section id="profilePage" class="container d-none mt-4">
-    <div class="card p-4">
-      <h5>My Profile</h5>
-      <p><strong>Name:</strong> <span id="profileName">-</span></p>
-      <p><strong>Email:</strong> <span id="profileEmail">-</span></p>
-    </div>
-  </section>
+  <!-- ================= PROFILE PAGE ================= -->
+<section id="profilePage" class="container d-none mt-4">
+  <div class="card p-4">
+    <h5>My Profile</h5>
+    <p><strong>Name:</strong> <span id="profileName">-</span></p>
+    <p><strong>Email:</strong> <span id="profileEmail">-</span></p>
+  </div>
+</section>
+
+
 
   <!-- ================= FORCED DAILY CHECK-IN MODAL ================= -->
   <div class="modal fade" id="dailyCheckinModal" data-bs-backdrop="static" data-bs-keyboard="false">
