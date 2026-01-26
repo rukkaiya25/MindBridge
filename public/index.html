@@ -31,141 +31,280 @@
   </nav>
 
   <!-- ================= INTRO PAGE ================= -->
-<section id="introPage" class="intro-wrapper container d-flex align-items-center min-vh-100">
-  <div class="intro-glass row w-100 align-items-center">
+  <section id="introPage" class="container intro-page d-flex align-items-center min-vh-100">
+    <div class="row w-100 align-items-center g-4">
 
-    <!-- LEFT CONTENT -->
-    <div class="col-md-6 text-center text-md-start">
-      <h1 class="intro-title">
-        Welcome to <span>MindBridge</span>
-      </h1>
+      <div class="col-lg-6">
+        <div class="brand-badge mb-3">
+          <span class="dot"></span>
+          <span>Wellness Tracker</span>
 
-      <p class="intro-text">
-        A calm, supportive space to track your mood, understand your emotions,
-        and care for your mental wellness — one day at a time.
-      </p>
+        </div>
 
-      <div class="d-flex gap-3 mt-4 justify-content-center justify-content-md-start">
-        <button class="btn btn-primary" onclick="showLogin()">Login</button>
-        <button class="btn btn-outline-primary" onclick="showSignup()">Sign Up</button>
+        <h1 class="intro-title">MindBridge</h1>
+
+        <p class="intro-subtitle">
+          Track mood, stress, energy, and sleep in under a minute. Review weekly trends and spot patterns early.
+        </p>
+
+
+        <div class="feature-list mt-4">
+          <div class="feature-item">
+            <i class="bi bi-check2-circle"></i>
+            <span>Quick daily check-in (once per day)</span>
+          </div>
+          <div class="feature-item">
+            <i class="bi bi-check2-circle"></i>
+            <span>Weekly trend charts for better awareness</span>
+          </div>
+          <div class="feature-item">
+            <i class="bi bi-check2-circle"></i>
+            <span>Optional weekly screening test when needed</span>
+          </div>
+        </div>
+
+
+        <div class="mt-4 d-flex gap-3">
+          <button class="btn btn-primary px-4" onclick="showLogin()">Login</button>
+          <button class="btn btn-outline-secondary px-4" onclick="showSignup()">Sign Up</button>
+        </div>
+
+        <p class="intro-footnote mt-4">
+          Note: This app supports self-tracking and awareness. It does not provide medical advice.
+        </p>
+
       </div>
 
-      <p class="mt-4 text-muted" style="font-size:14px;">
-        Trusted by students to reflect, track, and grow 🌱
-      </p>
-    </div>
+      <div class="col-lg-6">
+        <div class="preview-card">
+          <div class="preview-header">
+            <div class="preview-title">What you can do</div>
+            <div class="preview-chip">Dashboard</div>
+          </div>
 
-    <!-- RIGHT FEATURE CARDS -->
-    <div class="col-md-6 mt-5 mt-md-0">
-      <div class="intro-cards">
+          <div class="preview-grid">
+            <div class="preview-metric">
+              <div class="label">Mood</div>
+              <div class="value">1–10</div>
+            </div>
+            <div class="preview-metric">
+              <div class="label">Stress</div>
+              <div class="value">1–10</div>
+            </div>
+            <div class="preview-metric">
+              <div class="label">Energy</div>
+              <div class="value">1–10</div>
+            </div>
+            <div class="preview-metric">
+              <div class="label">Sleep</div>
+              <div class="value">1–10</div>
+            </div>
+          </div>
 
-        <div class="intro-card">
-          <i class="bi bi-emoji-smile"></i>
-          <h6>Track Your Mood</h6>
-          <p>Daily emotional check-ins made simple.</p>
+          <div class="preview-note mt-3">
+            After login, MindBridge prompts today’s check-in if it hasn’t been submitted.
+          </div>
         </div>
-
-        <div class="intro-card">
-          <i class="bi bi-graph-up"></i>
-          <h6>Visual Insights</h6>
-          <p>Understand trends, not just numbers.</p>
-        </div>
-
-        <div class="intro-card">
-          <i class="bi bi-heart-pulse"></i>
-          <h6>Mental Wellness</h6>
-          <p>Your well-being comes first.</p>
-        </div>
-
       </div>
-    </div>
 
-  </div>
-</section>
+    </div>
+  </section>
 
 
   <!-- ================= LOGIN ================= -->
-  <div id="loginPage" class="container d-flex justify-content-center align-items-center" style="min-height:85vh;">
-    <div class="col-md-4">
-      <div class="card login-card p-4">
-        <h5 class="text-center mb-4">Login</h5>
+  <!-- ================= LOGIN ================= -->
+  <section id="loginPage" class="container d-none auth-page d-flex align-items-center min-vh-100">
+    <div class="row w-100 justify-content-center">
+      <div class="col-lg-9 col-xl-8">
+        <div class="auth-shell">
 
-        <input id="loginEmail" class="form-control mb-3" placeholder="Email">
+          <!-- LEFT PANEL -->
+          <div class="auth-left d-none d-md-flex">
+            <div class="w-100 d-flex flex-column">
+              <div class="auth-brand">MindBridge</div>
+              <div class="auth-tag">Track. Review. Understand.</div>
 
-        <div class="input-group mb-3">
-          <input id="loginPassword" type="password" class="form-control" placeholder="Password">
-          <span class="input-group-text" onclick="togglePassword('loginPassword', this)">
-            <i class="bi bi-eye"></i>
-          </span>
+              <div class="auth-bullets mt-4">
+                <div><i class="bi bi-graph-up"></i> View weekly trends at a glance</div>
+                <div><i class="bi bi-calendar-check"></i> One check-in per day</div>
+                <div><i class="bi bi-lock"></i> Your account stays private</div>
+              </div>
+
+              <div class="auth-small mt-auto">MindBridge</div>
+            </div>
+          </div>
+
+          <!-- RIGHT PANEL (FORM) -->
+          <div class="auth-right">
+            <div class="auth-card">
+              <h4 class="auth-title">Sign in</h4>
+              <p class="auth-sub">Enter your email and password to continue.</p>
+
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input id="loginEmail" class="form-control" placeholder="you@example.com">
+              </div>
+
+              <div class="mb-2">
+                <label class="form-label">Password</label>
+                <div class="input-group">
+                  <input id="loginPassword" type="password" class="form-control" placeholder="••••••••">
+                  <span class="input-group-text" onclick="togglePassword('loginPassword', this)">
+                    <i class="bi bi-eye"></i>
+                  </span>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center mt-2">
+                <a href="#" class="small-link" onclick="showForgot(); return false;">Forgot password?</a>
+                <a href="#" class="small-link" onclick="showSignup(); return false;">Create account</a>
+              </div>
+
+              <button class="btn btn-primary w-100 mt-4" onclick="login()">Sign in</button>
+
+              <div class="auth-help mt-3">
+                Having trouble signing in? Use “Forgot password” to reset.
+              </div>
+            </div>
+          </div>
+
         </div>
-
-        <button class="btn btn-primary w-100" onclick="login()">Login</button>
-
-        <p class="text-center mt-2">
-          <a href="#" onclick="showForgot(); return false;">Forgot password?</a>
-        </p>
-
-        <p class="text-center mt-2">
-          <a href="#" onclick="showSignup(); return false;">Create account</a>
-        </p>
       </div>
     </div>
-  </div>
+  </section>
+
+
 
   <!-- ================= SIGNUP ================= -->
-  <div id="signupPage"
-     class="container d-none d-flex justify-content-center align-items-center"
-     style="min-height:85vh;">
+  <!-- ================= SIGNUP ================= -->
+  <section id="signupPage" class="container d-none auth-page d-flex align-items-center min-vh-100">
+    <div class="row w-100 justify-content-center">
+      <div class="col-lg-9 col-xl-8">
+        <div class="auth-shell">
 
-    <div class="col-md-4">
-      <div class="card login-card p-4">
-        <h5 class="text-center mb-4">Sign Up</h5>
+          <!-- LEFT PANEL -->
+          <div class="auth-left d-none d-md-flex">
+            <div class="w-100 d-flex flex-column">
+              <div class="auth-brand">MindBridge</div>
+              <div class="auth-tag">Create your account and start tracking.</div>
 
-        <input id="signupName" class="form-control mb-3" placeholder="Name">
-        <input id="signupEmail" class="form-control mb-3" placeholder="Email">
+              <div class="auth-bullets mt-4">
+                <div><i class="bi bi-person-check"></i> Set up your profile</div>
+                <div><i class="bi bi-clipboard2-check"></i> Submit one daily check-in</div>
+                <div><i class="bi bi-graph-up"></i> Review weekly patterns</div>
+              </div>
 
-        <div class="input-group mb-3">
-          <input id="signupPassword" type="password" class="form-control" placeholder="Password">
-          <span class="input-group-text" onclick="togglePassword('signupPassword', this)">
-            <i class="bi bi-eye"></i>
-          </span>
+              <div class="auth-small mt-auto">Educational use only</div>
+            </div>
+          </div>
+
+          <!-- RIGHT PANEL (FORM) -->
+          <div class="auth-right">
+            <div class="auth-card">
+              <h4 class="auth-title">Create account</h4>
+              <p class="auth-sub">Use your name and email to get started.</p>
+
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input id="signupName" class="form-control" placeholder="Your name">
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input id="signupEmail" class="form-control" placeholder="you@example.com">
+              </div>
+
+              <div class="mb-2">
+                <label class="form-label">Password</label>
+                <div class="input-group">
+                  <input id="signupPassword" type="password" class="form-control" placeholder="At least 6 characters">
+                  <span class="input-group-text" onclick="togglePassword('signupPassword', this)">
+                    <i class="bi bi-eye"></i>
+                  </span>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end mt-2">
+                <a href="#" class="small-link" onclick="showLogin(); return false;">Back to login</a>
+              </div>
+
+              <button class="btn btn-primary w-100 mt-4" onclick="signup()">Create account</button>
+
+              <div class="auth-help mt-3">
+                You can view your history and weekly trends after your first check-in.
+              </div>
+            </div>
+          </div>
+
         </div>
-
-        <button class="btn btn-primary w-100" onclick="signup()">Create Account</button>
-
-        <p class="text-center mt-3">
-          <a href="#" onclick="showLogin(); return false;">Back to login</a>
-        </p>
       </div>
     </div>
-  </div>
+  </section>
+
 
   <!-- ================= FORGOT PASSWORD ================= -->
-  <div id="forgotPage"
-     class="container d-none d-flex justify-content-center align-items-center"
-     style="min-height:85vh;">
+  <section id="forgotPage" class="container d-none auth-page d-flex align-items-center min-vh-100">
+    <div class="row w-100 justify-content-center">
+      <div class="col-lg-9 col-xl-8">
+        <div class="auth-shell">
 
-    <div class="col-md-4">
-      <div class="card login-card p-4">
-        <h5 class="text-center mb-4">Reset Password</h5>
+          <div class="auth-left d-none d-md-flex">
+            <div>
+              <div class="auth-brand">MindBridge</div>
+              <div class="auth-tag">Reset your password</div>
 
-        <input id="forgotEmail" class="form-control mb-3" placeholder="Registered Email">
+              <div class="auth-bullets mt-4">
+                <div><i class="bi bi-envelope"></i> Enter your registered email</div>
+                <div><i class="bi bi-key"></i> Set a new password</div>
+                <!-- <div><i class="bi bi-shield-lock"></i> Works via backend route</div> -->
+              </div>
+            </div>
 
-        <div class="input-group mb-4">
-          <input id="newPassword" class="form-control" type="password" placeholder="New Password">
-          <span class="input-group-text" onclick="togglePassword('newPassword', this)">
-            <i class="bi bi-eye"></i>
-          </span>
+            <div class="auth-small mt-auto">
+              Password reset
+
+            </div>
+          </div>
+
+          <div class="auth-right">
+            <div class="auth-card">
+              <h4 class="auth-title">Reset Password</h4>
+              <p class="auth-sub">Reset your password using your registered email.</p>
+
+
+              <div class="mb-3">
+                <label class="form-label">Registered Email</label>
+                <input id="forgotEmail" class="form-control" placeholder="you@example.com">
+              </div>
+
+              <div class="mb-2">
+                <label class="form-label">New Password</label>
+                <div class="input-group">
+                  <input id="newPassword" class="form-control" type="password" placeholder="New password">
+                  <span class="input-group-text" onclick="togglePassword('newPassword', this)">
+                    <i class="bi bi-eye"></i>
+                  </span>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end mt-2">
+                <a href="#" class="small-link" onclick="showLogin(); return false;">Back to login</a>
+              </div>
+
+              <button class="btn btn-primary w-100 mt-4" onclick="resetPassword()">Update Password</button>
+
+              <div class="auth-help mt-3">
+                After resetting, return to sign in with your new password.
+              </div>
+
+            </div>
+          </div>
+
         </div>
-
-        <button class="btn btn-primary w-100" onclick="resetPassword()">Update Password</button>
-
-        <p class="text-center mt-3">
-          <a href="#" onclick="showLogin(); return false;">Back to login</a>
-        </p>
       </div>
     </div>
-  </div>
+  </section>
+
 
   <!-- ================= DASHBOARD ================= -->
   <section id="dashboardPage" class="dashboard d-none">
