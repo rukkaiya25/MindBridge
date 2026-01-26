@@ -13,8 +13,15 @@ function setNavbarVisible(show) {
 
 /* ===================== VIEW HELPERS ===================== */
 function hideAll() {
-    ["loginPage", "signupPage", "forgotPage", "dashboardPage", "screeningPage", "profilePage"]
-        .forEach(id => el(id)?.classList.add("d-none"));
+    [
+      "introPage",
+      "loginPage",
+      "signupPage",
+      "forgotPage",
+      "dashboardPage",
+      "screeningPage",
+      "profilePage"
+    ].forEach(id => el(id)?.classList.add("d-none"));
 }
 
 function requireAuth() {
@@ -144,8 +151,12 @@ async function resetPassword() {
 function logout() {
     localStorage.removeItem("token");
     token = null;
-    showLogin();
+
+    hideAll();
+    setNavbarVisible(false);
+    el("introPage")?.classList.remove("d-none");
 }
+
 
 /* ===================== DAILY CHECK-IN ===================== */
 async function checkToday() {
@@ -274,8 +285,14 @@ function loadProfile() {
 
 /* ===================== INIT ===================== */
 function initApp() {
-    if (!token) showLogin();
-    else showDashboard();
+    hideAll();
+    setNavbarVisible(false);
+
+    if (!token) {
+        el("introPage")?.classList.remove("d-none");
+    } else {
+        showDashboard();
+    }
 }
 
 initApp();

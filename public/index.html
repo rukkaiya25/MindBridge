@@ -30,6 +30,60 @@
     </div>
   </nav>
 
+  <!-- ================= INTRO PAGE ================= -->
+<section id="introPage" class="intro-wrapper container d-flex align-items-center min-vh-100">
+  <div class="intro-glass row w-100 align-items-center">
+
+    <!-- LEFT CONTENT -->
+    <div class="col-md-6 text-center text-md-start">
+      <h1 class="intro-title">
+        Welcome to <span>MindBridge</span>
+      </h1>
+
+      <p class="intro-text">
+        A calm, supportive space to track your mood, understand your emotions,
+        and care for your mental wellness — one day at a time.
+      </p>
+
+      <div class="d-flex gap-3 mt-4 justify-content-center justify-content-md-start">
+        <button class="btn btn-primary" onclick="showLogin()">Login</button>
+        <button class="btn btn-outline-primary" onclick="showSignup()">Sign Up</button>
+      </div>
+
+      <p class="mt-4 text-muted" style="font-size:14px;">
+        Trusted by students to reflect, track, and grow 🌱
+      </p>
+    </div>
+
+    <!-- RIGHT FEATURE CARDS -->
+    <div class="col-md-6 mt-5 mt-md-0">
+      <div class="intro-cards">
+
+        <div class="intro-card">
+          <i class="bi bi-emoji-smile"></i>
+          <h6>Track Your Mood</h6>
+          <p>Daily emotional check-ins made simple.</p>
+        </div>
+
+        <div class="intro-card">
+          <i class="bi bi-graph-up"></i>
+          <h6>Visual Insights</h6>
+          <p>Understand trends, not just numbers.</p>
+        </div>
+
+        <div class="intro-card">
+          <i class="bi bi-heart-pulse"></i>
+          <h6>Mental Wellness</h6>
+          <p>Your well-being comes first.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
   <!-- ================= LOGIN ================= -->
   <div id="loginPage" class="container d-flex justify-content-center align-items-center" style="min-height:85vh;">
     <div class="col-md-4">
@@ -59,7 +113,10 @@
   </div>
 
   <!-- ================= SIGNUP ================= -->
-  <div id="signupPage" class="container d-none justify-content-center align-items-center" style="min-height:85vh;">
+  <div id="signupPage"
+     class="container d-none d-flex justify-content-center align-items-center"
+     style="min-height:85vh;">
+
     <div class="col-md-4">
       <div class="card login-card p-4">
         <h5 class="text-center mb-4">Sign Up</h5>
@@ -84,7 +141,10 @@
   </div>
 
   <!-- ================= FORGOT PASSWORD ================= -->
-  <div id="forgotPage" class="container d-none justify-content-center align-items-center" style="min-height:85vh;">
+  <div id="forgotPage"
+     class="container d-none d-flex justify-content-center align-items-center"
+     style="min-height:85vh;">
+
     <div class="col-md-4">
       <div class="card login-card p-4">
         <h5 class="text-center mb-4">Reset Password</h5>
